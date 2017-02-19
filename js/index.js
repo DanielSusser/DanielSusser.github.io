@@ -1,25 +1,37 @@
 $(document).ready(function(){
 //$('#accuracyChecker').css("display","none")
   $('#sizeLink').click(function(){
-  $('#landingChoices').css("display","none");
-  $('#sampleSizeChecker').css("display","");  
+  $('#landingPage').css("display","none");
+  $('#significanceChecker').css("display","none")
+  $('#sampleSizeChecker').css("display","");
   });
 $('#significanceLink').click(function(){
-  $('#landingChoices').css("display","none");
+  $('#landingPage').css("display","none");
+  $('#sampleSizeChecker').css("display","none");
   $('#significanceChecker').css("display","");
 });//click significance
-  $('#backButton').click(function(){
+  $('#home').click(function(){
     $('#significanceChecker').css("display","none");
     $('#sampleSizeChecker').css("display","none");
- $('#landingChoices').css("display","");
+ $('#landingPage').css("display","");
   });
-    $('#backButton1').click(function(){
+    $('#home').click(function(){
     $('#significanceChecker').css("display","none");
     $('#sampleSizeChecker').css("display","none");
-   
-    $('#landingChoices').css("display","");
+
+    $('#landingPage').css("display","");
 
   });
+  $('#home').mouseover(function(){
+    $(this).css("color", 'white');
+    $(this).css("cursor", 'pointer')
+  });
+  $('#home').mouseout(function(){
+    $(this).css("color", 'black');
+
+  });
+
+     //onmouseout="this.style.color = 'black';"
 //size checker function (delete the one below)
 var NormSInv = function(p) {
     var a1 = -39.6968302866538, a2 = 220.946098424521, a3 = -275.928510446969;
@@ -64,33 +76,33 @@ var calculate = function(){
   var standardError = Math.sqrt((measured*(1-measured))/sampleSize);
   var tStatistic = (measured-fail)/standardError;
   var normalDist = 1-(Math.sqrt(1/(2*Math.PI))* Math.exp(-Math.pow(tStatistic,2)/2));
-  //Calculates the sample size needed for the uncertain examples 
+  //Calculates the sample size needed for the uncertain examples
  var calculateSuggestedSize = function(failCondition,measuredRate){
   var confidence = 0.95;
   var tStatistic = NormSInv((1-confidence)/2);
-  var sampleSizeNeeded = Math.floor((measuredRate*(1-measuredRate))/Math.pow(   
+  var sampleSizeNeeded = Math.floor((measuredRate*(1-measuredRate))/Math.pow(
     ((measuredRate - failCondition)/tStatistic),2));
       /*Math.floor(
-    (measuredRate*(1-measuredRate))/Math.pow((   
+    (measuredRate*(1-measuredRate))/Math.pow((
     (measuredRate - failCondition)/tStatistic),2));*/
- return sampleSizeNeeded;   
+ return sampleSizeNeeded;
  };
     /*
   var sampleSizeNeeded = Math.floor(
-    ($('#expectedMeasured').val()/100)*(1-($('#expectedMeasured').val()/100))/Math.pow((   
+    ($('#expectedMeasured').val()/100)*(1-($('#expectedMeasured').val()/100))/Math.pow((
     (($('#expectedMeasured').val())/100 - ($('#failCondition1').val()/100))/tStatistic1),2));
     */
-    
+
   //Works out the conversion rate (as opposed to number of conversions)
   $('#conversionRate').html("<span style='font-size:14px'>(conversion rate: "+(measured*100).toFixed()+"%)</span>");
   if($('#measuredConversion').val()===""||$('#failCondition').val()===""||$('#sampleSize').val()===""){
 
       $('#results').html("<div class='col-md-12'><span style='color:red'>You've left some empty boxes above, please enter numbers for all three fields! Thank you. Appreciated.</span></div>");
-    }  
+    }
     else if(measured>=fail && normalDist>=0.95){
 
   $('#results').html("<img class=\"col-md-2 col-md-offset-1\" src=\"https://openclipart.org/image/800px/svg_to_png/214028/Thumbs-Up-Circle.png\"><div class=\"col-md-9 col-md-offset-1\">Great News! You can be <strong>"+(Math.floor(normalDist*100))+"%</strong> certain that your conversion rate is above "+fail*100+"%.");
-   }else if(measured>=fail){ 
+   }else if(measured>=fail){
           $('#results').html("<img class=\"col-md-2 col-md-offset-1\" src=\"http://namduoc.vn/wp-content/uploads/2016/07/Question-Rage-Face.jpg\"><div class=\"col-md-9 col-md-offset-1\">Hmmmm, seems like you can only be <strong>"+(Math.floor(normalDist*100))+"%</strong> certain that your conversion rate is above "+fail*100+"%. Try increasing the sample size nearer to "+calculateSuggestedSize(fail,measured));
     }else{
       $('#results').html("<img class=\"col-md-2 col-md-offset-1\" src=\"https://openclipart.org/image/2400px/svg_to_png/214030/Thumbs-Down-Circle.png\"><div class=\"col-md-9 col-md-offset-1\">Uh Oh, you can be <strong>"+(Math.floor(normalDist*100))+"%</strong> certain that your conversion rate is below "+fail*100+"%. ABANDON SHIP ME HEARTIES!!")
@@ -101,14 +113,25 @@ var calculate1 = function(){
     calculate()
   }
 };
-$('#calculate').click(function(){calculate()});
+$('#calculate').click(function(){
+  calculate();
+});
 
-$('#clear').click(function(){
+var clearFields = function(){
+  $('#confidence').val(95);
+  $('#failCondition1').val("");
+  $('#expectedMeasured').val("");
+  $('#results1').html("")
+};
+var clearFieldsSignificanceChecker = function(){
+  $('#sampleSize').val("");
   $('#failCondition').val("");
   $('#measuredConversion').val("");
-  $('#sampleSize').val("");
   $('#results').html("")
-})//clear function
+};
+$('#clearSampleSizeCalc').click(function(){
+  clearFields();
+  })//clear function
 //size checker function
 var NormSInv = function(p) {
     var a1 = -39.6968302866538, a2 = 220.946098424521, a3 = -275.928510446969;
@@ -152,10 +175,10 @@ $('#calculate1').click(function(){
   var $confidence = ($('#confidence').val())/100;
   var tStatistic1 = NormSInv((1-$confidence)/2);
   var sampleSizeNeeded = Math.floor(
-    ($('#expectedMeasured').val()/100)*(1-($('#expectedMeasured').val()/100))/Math.pow((   
+    ($('#expectedMeasured').val()/100)*(1-($('#expectedMeasured').val()/100))/Math.pow((
     (($('#expectedMeasured').val())/100 - ($('#failCondition1').val()/100))/tStatistic1),2));
   if($('#confidence').val()===""||$('#expectedMeasured').val()===""||$('#failCondition1').val()===""){
-    
+
     $('#results1').html("<div class='col-md-12'><span style='color:red'>You've left some empty boxes above, please enter numbers for all three fields! Thank you. Appreciated.</span></div>");
   }
   else{
@@ -164,5 +187,7 @@ $('#calculate1').click(function(){
   }
 })
 
-
+$('#clearSignificanceChecker').click(function(){
+  clearFieldsSignificanceChecker()
+});
 })

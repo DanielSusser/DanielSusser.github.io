@@ -1,13 +1,82 @@
 body{
-  background-color:#a7a8aa;
+  background-color:white;
+  padding: 0px;
+  margin: 0px;
+  }
+.container{
+  width:100%;
+}
+h1{
+  font-size: 40px;
+  padding-bottom: 0px;
+}
+h2{
+  font-size:20px
+}
+#banner{
+  background: #00b6ed;
+  width:100%;
+
+  padding-top:10px;
+  padding-left: 25px;
+  margin-bottom:2%;
+  position: relative;
+}
+.span6 {
+  display: table-cell;
+  vertical-align: bottom;
+  float: none;
 }
 .well{
   border-color:#a7a8aa;
-color:#P7a8aa;
- font-family:calibri;
+  color:#P7a8aa;
+  font-family:calibri;
   font-size:24px;
+  margin-left:15%;
+  margin-right:15%;
+  width:auto;
 }
+.nav-buttons{
+font-size: 17px;
+height:30px;
+font-weight: bold;
 
+}
+table{
+    display: table;
+    margin: 0 auto;
+    width:100%;
+}
+td {
+  padding:10px;
+}
 input{
-  color:black;
+  width:30%;
+  color:black
+
+}
+.btn{
+  position:relative;
+  float:right;
+  width:40%;
+}
+#calculate1{
+  background-color:#ec008b;
+  font-weight:bold;
+  color: white;
+
+}
+.labelSubtitle{
+  font-size: 60%;
+}
+.labels{
+  padding-right: 30px;
+}
+.inputs{
+  position:relative;;
+  float:right;
+  width:70%;
+}
+#landingPage{
+  font-size: 100%;
 }
