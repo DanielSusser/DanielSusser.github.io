@@ -28,12 +28,15 @@
   <meta charset="UTF-8">
   <title>Surefyr - statistical significance made easy</title>
 
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
-  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-  <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
 
-  <link rel="stylesheet" href="css/style.css">
 
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 </head>
 
@@ -73,20 +76,58 @@
         </div>
     </div> -->
     <!--Landing Page -->
-<div class="container well" id="landingPage">
-  Size matters. Sample size that is. We want to know that the results we get are reliable - whether it's changing the size of the donate button on a charity website, or giving some patients a new treatment, we need to know that what we do <strong>really</strong> makes a difference.
 
-<br><br>When you run an experiment, you are trying to work out the size of an effect. This <strong>baseline</strong> can be a control group, experiencing the same experiment, or a result from an existing data set that you are trying to beat.
 
- <br><br>Large experiments are able to detect small effects, but it's hard to know how many people you need to make sure your experiment is 'statistically significant'. For this, SureFyr can help you calculate your <strong>sample size</strong>.
 
- <br><br>Chance is a funny thing, and even if you have tonnes of data, it's still possible that your result is a statistical fluke.
- <strong>Confidence level</strong> refers to the likelihood that yours results are down to chance. A result with 95% confidence means that there is a 5% chance that your hypothesis isn't true, but your results look good anyway. 95% would need a larger sample size than a 90% confidence result.
 
- <br><br>If your sample size is large enough to detect the effect size in your experiment with an acceptable degree of confidence, we say your experiment is <strong>powered</strong> to detect your effect.
+<!--<div class="container well" id="landingPage">
+  <p>Size matters. Sample size that is. We want to know that the results we get are reliable -
+    whether it's changing the size of the donate button on a charity website, or giving some patients a
+     new treatment, we need to know that what we do <strong>really</strong> makes a difference.</p>
 
- <br><br>The larger the sample size, the more confident you can be in your results. SureFyr is a user friendly power calculator that helps you to work out how many people you need in your test, or it can tell you if a test you have already run can give you reliable results.
+<p>When you run an experiment, you are trying to work out the size of an effect.
+ This <strong>baseline</strong> can be a control group, experiencing the same experiment,
+ or a result from an existing data set that you are trying to beat.</p>
 
+ <p>Large experiments are able to detect small effects,
+   but it's hard to know how many people you need to make sure your experiment is 'statistically significant'.
+   For this, SureFyr can help you calculate your <strong>sample size</strong>.</p>
+
+ <p>Chance is a funny thing, and even if you have tonnes of data, it's still possible that your result is a statistical fluke.
+ <strong>Confidence level</strong> refers to the likelihood that yours results are down to chance.
+  A result with 95% confidence means that there is a 5% chance that your hypothesis isn't true, but your results look good anyway.
+   95% would need a larger sample size than a 90% confidence result.</p>
+
+ <p>If your sample size is large enough to detect the effect size in your experiment with an acceptable degree of confidence,
+   we say your experiment is <strong>powered</strong> to detect your effect.</p>
+
+ <p>The larger the sample size, the more confident you can be in your results.
+   SureFyr is a user friendly power calculator that helps you to work out how many people you need in your test,
+    or it can tell you if a test you have already run can give you reliable results.</p>
+
+</div>-->
+<div class="well" id="landingPage">
+  <p class="landingPageText">Surefyr is a user friendly power calculator.
+    It can help you work out how big to make your experiments,
+    and it can help you work out which size of effects you can measure with a stated sample size</p>
+  <p class="landingPageText">Try it out! If you like it or have any questions, drop us a comment and your email address in the box below
+    and share your feedback and ideas for new features.</p>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <form id="comments" action="index.html" method="post">
+      <div class="form-group">
+        <label class ="col-md-2" for="email">Your Email </label><input class="col-md-8" type="text" value="" name="email"><br>
+      </div>
+      <div class="form-group">
+        <label class ="col-md-2" for="comments">Your message</label><input class="col-md-8" type="text" name="comment" value="">
+      </div>
+      <div class="form-group">
+        <input type="submit" name="addEmailAddress" value="Submit">
+      </div>
+
+    </form>
+  </div>
 </div>
 
     <!-- End of Landing Page -->
@@ -206,8 +247,9 @@
   <div id="ec008b"></div>
   <div id="ec008c"></div>
   <div id="00b6ed"></div>
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
 
   <script src="js/index.js"></script>
 

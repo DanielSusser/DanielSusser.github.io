@@ -190,4 +190,11 @@ $('#calculate1').click(function(){
 $('#clearSignificanceChecker').click(function(){
   clearFieldsSignificanceChecker()
 });
+
+//Submit email addresses to mailchimp API
+
+  $('#comments').submit(function(event){
+    console.log("add email addresses")
+  })
+
 })
