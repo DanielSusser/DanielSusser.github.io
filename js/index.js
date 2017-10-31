@@ -1,5 +1,6 @@
 $(document).ready(function(){
-//$('#accuracyChecker').css("display","none")
+
+$('#accuracyChecker').css("display","none")
   $('#sizeLink').click(function(){
   $('#landingPage').css("display","none");
   $('#significanceChecker').css("display","none")
@@ -31,7 +32,7 @@ $('#significanceLink').click(function(){
 
   });
 
-     //onmouseout="this.style.color = 'black';"
+     onmouseout="this.style.color = 'black';"
 //size checker function (delete the one below)
 var NormSInv = function(p) {
     var a1 = -39.6968302866538, a2 = 220.946098424521, a3 = -275.928510446969;
