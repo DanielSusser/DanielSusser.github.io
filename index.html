@@ -132,50 +132,63 @@
 
     <!-- End of Landing Page -->
 <!--calculates sample sizes-->
-    <div class="container well" id="sampleSizeChecker" style="display:none">
-      <table>
-        <tr>
-          <td class="labels">
-            <label for="confidence">Confidence
-          <span class="labelSubtitle">How confident would you like to be with your result? (95% is standard)</span>:</label>
-          </td>
-          <td class="inputs">
-            <input type="number" id="confidence" value=95>%
-          </td>
-        </tr>
-        <tr>
-          <td class="labels">
-        <label for="failCondition1">Baseline
-          <span class="labelSubtitle">What is the number you are comparing your results to?</span>
-          :</label>
-        </td>
-        <td class="inputs">
-        <input type="number" id="failCondition1">%
-        </td>
-      </tr>
-      <tr>
-        <td class="labels">
+
+
+
+
+
+
+  </div>
+  <div class="container well" id="sampleSizeChecker" style="display:none">
+    <!--checks significance of existing experiment-->
+    <br>
+    <br>
+    <div class="well container">
+      <div class="row">
+        <div class="col-md-8">
+          <label for="confidence">Confidence
+        <span class="labelSubtitle">How confident would you like to be with your result? (95% is standard)</span>:</label>
+        </div>
+        <div class="col-md-4">
+          <input type="number" id="confidence" value=95>%
+        </div>
+    </div>
+      <div class="row">
+        <div class="col-md-8">
+          <label for="failCondition1">Baseline
+            <span class="labelSubtitle">What is the number you are comparing your results to?</span>
+            :</label>
+        </div>
+        <div class="col-md-4">
+          <input type="number" id="failCondition1">%
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
           <label for="expectedMeasured">Expected Measurement
             <span class="labelSubtitle">What do you expect your result to be?</span>
-          :</label>
-        </td>
-        <td class="inputs">
-          <input type="number" id="expectedMeasured">%
-        </td>
-      </tr>
-
-
-
-
-
-
+          :</label>        </div>
+        <div class="col-md-4">
+        <input type="number" id="expectedMeasured">%
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-8">
           <input type="button" class="btn" id="calculate1" value="CALCULATE">
-</table>
-          <br>
-          <!--line break-->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-8">
           <input type="button" class="btn" id="clearSampleSizeCalc" value="CLEAR" style="background-color:#FFFFFF; border-color:#ec008b; color:#ec008b;font-weight:bold">
-          <div id="results1"></div>
-  </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2" id="results1"></div>
+        </div>
+      </div>
 
 
 
@@ -192,49 +205,50 @@
     <br>
     <br>
     <div class="well container">
-
-      <table>
-        <tr>
-          <td class="labels">
-            <label for="sampleSize">Sample Size
-            <span class="labelSubtitle">How many visits did the site get?</span>:</label>
-          </td>
-          <td class="inputs">
-            <input type="number" id="sampleSize">
-          </td>
-        </tr>
-        <tr>
-         <td class="labels">
-           <label for="failCondition">Baseline
-           <span class="labelSubtitle">The test has failed if you measure less than this</span>
-           :</label>
-         </td>
-         <td class="inputs">
-        <input type="number" id="failCondition">%
-        </td>
-      </tr>
-      <tr>
-        <td class="labels">
-            <label for="measuredConversion">Number of Conversions
-            <span class="labelSubtitle">How many people converted in the experiment?</span>
-          :</label>
-        </td>
-        <td class="inputs">
-          <input type="number" id="measuredConversion">
-        </td>
-      </tr>
-
-
-          <input type="button" class="btn" id="calculate" value="CALCULATE">
-          <br>
-          <!--line break-->
-          <input type="button" class="btn" id="clearSignificanceChecker" value="CLEAR" style="background-color:#FFFFFF; border-color:#ec008b; color:#ec008b;font-weight:bold">
-          <div id="results"></div>
-        </table>
-
-
-          </div>
+      <div class="row">
+        <div class="col-md-8">
+          <label for="sampleSize">Sample Size</label>
+          <span class="labelSubtitle">How many visits did the site get?</span>:
         </div>
+        <div class="col-md-4">
+          <input type="number" id="sampleSize">
+        </div>
+    </div>
+      <div class="row">
+        <div class="col-md-8">
+          <label for="failCondition">Baseline</labl>
+          <span class="labelSubtitle">The test has failed if you measure less than this</span>
+        </div>
+        <div class="col-md-4">
+          <input type="number" id="failCondition">%
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <label for="measuredConversion">Number of Conversions</label>
+          <span class="labelSubtitle">How many people converted in the experiment?</span>
+        </div>
+        <div class="col-md-4">
+          <input type="number" id="measuredConversion">
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-8">
+          <input type="button" class="btn" id="calculate" value="CALCULATE">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-8">
+          <input type="button" class="btn" id="clearSignificanceChecker" value="CLEAR" style="background-color:#FFFFFF; border-color:#ec008b; color:#ec008b;font-weight:bold">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2" id="results"></div>
+        </div>
+      </div>
+
 
     </div>
   </div>
